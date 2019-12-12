@@ -2,6 +2,7 @@ import {
   FETCH_QUOTES_START,
   FETCH_QUOTES_SUCCESS,
   FETCH_QUOTES_FAILURE,
+  FILTER_QUOTES
 } from '../actions/quoteActions';
 
 const initialState = {
@@ -31,6 +32,13 @@ const reducer = (state = initialState, action) => {
         isFetching: false,
         error: action.payload
       }
+      case FILTER_QUOTES:
+        return {
+          ...state,
+          quotes: state.quotes.filter( quote => {
+            return quote.author.toLowerCase().includes(action.payload.toLowerCase());
+          })
+        }
     default: 
       return state;
   }

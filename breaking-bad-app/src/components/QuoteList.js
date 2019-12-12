@@ -2,11 +2,12 @@ import React, {useState} from 'react';
 import Quote from './Quote';
 import { connect } from 'react-redux';
 
-import { getQuotes } from '../actions/quoteActions';
+import { getQuotes, filterQuotes } from '../actions/quoteActions';
 
 const QuoteList = props => {
 
   const [quoteNum, setQuoteNum] = useState('')
+  const [filter, setFilter] = useState('')
 
   const handleChanges = e => {
     setQuoteNum(e.target.value);
@@ -16,6 +17,16 @@ const QuoteList = props => {
     e.preventDefault();
     props.getQuotes(quoteNum)
     setQuoteNum('');
+  }
+
+  const handleFilterTerm = e => {
+    setFilter(e.target.value)
+  }
+
+  const handleFilter = e => {
+    e.preventDefault();
+    props.filterQuotes(filter)
+    setFilter('')
   }
 
   return (
@@ -30,8 +41,19 @@ const QuoteList = props => {
         />
         <button>Get 'em!</button>
       </form>
+      {props.quotes.length > 0 && 
+      <form onSubmit={handleFilter}>
+        <input
+          type='text'
+          name='filter-term'
+          placeholder='filter quotes by name'
+          value={filter}
+          onChange={handleFilterTerm}
+        />
+        <button>Filter!</button>
+      </form>
+      }
       <div className='quote-list'>
-        {/* <h2>QuoteList</h2> */}
         {props.quotes.map( (quoteObj, index) => <Quote key={index} quoteObj={quoteObj}/>)}
       </div>
   </div>
@@ -46,5 +68,5 @@ const mapStateToProps = state => {
 }
 export default connect(
   mapStateToProps,
-  {getQuotes}
+  {getQuotes, filterQuotes}
 )(QuoteList);
