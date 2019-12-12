@@ -1,17 +1,36 @@
+import {
+  FETCH_QUOTES_START,
+  FETCH_QUOTES_SUCCESS,
+  FETCH_QUOTES_FAILURE,
+} from '../actions/quoteActions';
 
-const initialState = [
-  {
-    quote: 'I am the Breaking Bad quote app.',
-    author: 'Dan Hauer'
-  },
-  {
-    quote: 'Do not mess with New Mexico',
-    author: 'Walter White'
-  }
-];
+const initialState = {
+  quotes: [],
+  isFetching: false,
+  error: ''
+};
 
 const reducer = (state = initialState, action) => {
   switch(action.type) {
+    case FETCH_QUOTES_START:
+      return {
+        ...state,
+        isFetching: true
+      }
+    case FETCH_QUOTES_SUCCESS:
+      console.log('payload: ', action.payload);
+      return {
+        ...state,
+        quotes: action.payload,
+        isFetching: false,
+        error: ''
+      }
+    case FETCH_QUOTES_FAILURE:
+      return {
+        ...state,
+        isFetching: false,
+        error: action.payload
+      }
     default: 
       return state;
   }
