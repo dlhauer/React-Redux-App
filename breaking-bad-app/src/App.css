@@ -1,0 +1,88 @@
+body {
+  background-color: lightgray;
+  font-size: 62.5%;
+
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 , h3 {
+  font-size: 1.7rem;
+}
+
+p {
+  font-size: 1.6rem;
+}
+
+.App {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Montserrat';
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.quote-list {
+  display: flex;
+  width: 90%;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.quote-card {
+  background-color: darkgreen;
+  color: gold;
+  border: 5px solid gold;
+  border-radius: 20px;
+  width: 300px;
+  margin: 10px;
+  padding: 10px;
+}
+
+form > * {
+  /* border: 1px solid red; */
+  margin: 5px;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 1.6rem;
+}
+
+input {
+  width: 330px;
+}
