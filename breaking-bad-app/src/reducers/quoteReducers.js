@@ -3,6 +3,10 @@ const initialState = [
   {
     quote: 'I am the Breaking Bad quote app.',
     author: 'Dan Hauer'
+  },
+  {
+    quote: 'Do not mess with New Mexico',
+    author: 'Walter White'
   }
 ];
 

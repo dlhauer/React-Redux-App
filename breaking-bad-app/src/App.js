@@ -6,7 +6,7 @@ import QuoteList from './components/QuoteList';
 function App() {
   return (
     <div className="App">
-      <h1>App</h1>
+      <h1>Breaking Bad Quotes</h1>
       <QuoteList />
     </div>
   );

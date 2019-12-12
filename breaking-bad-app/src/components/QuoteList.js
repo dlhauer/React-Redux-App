@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 
 const QuoteList = props => {
   return (
-    <div className='quote'>
-      <h2>QuoteList</h2>
+    <div className='quote-list'>
+      {/* <h2>QuoteList</h2> */}
       {props.quotes.map( quoteObj => <Quote quoteObj={quoteObj}/>)}
     </div>
   )
